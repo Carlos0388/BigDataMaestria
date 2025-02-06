@@ -54,7 +54,8 @@ Will span two lines
 - George Washington
 * John Adams
 + Thomas Jefferson
-
++ AMLO
+  
 - [x] #739
 - [ ] https://github.com/octo-org/octo-repo/issues/740
 - [ ] Add delight to the experience when all tasks are complete :tada:
