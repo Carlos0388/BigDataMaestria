@@ -11,6 +11,8 @@ def calcularRadio(diametro: Double): Double
 scala> println(s"El radio de un círculo con diámetro 10 es: ${calcularRadio(10)}")
 El radio de un círculo con diámetro 10 es: 5.0
 
+//PARA CAULCUAR EL AREA DE UN CIRCULO SE CONTEMPLARON 2 POSIBLES OPCIONES, SABIENDO EL DIAMETRO Y SABIENDO LA CIRCUNFERENCIA
+//USANDO LAS 2 FORMULAS DEPENDIENDO EL DATO QUE SE INGRESE.
 
 2. Implementa un programa en scala que me diga si un numero es primo
     def esPrimo(numero: Int): Boolean = {
@@ -28,6 +30,10 @@ def esPrimo(numero: Int): Boolean
 scala> println(s"El número 7 es primo: ${esPrimo(7)}")
 El número 7 es primo: true
 
+//EJECUTA LA FORMULA PARA RECIBIR SI UN NUMERO ES PRIMO, EN EL EJEMPLO SE PONE EL NUMERO 7 QUE SABEMOS QUE SI ES NUMERO PRIMO
+//PIDE UNA VALIDACION PARA QUE SOLO SEAN NUMEROS MAYORES A 0
+
+
 3. Dada la variable bird = "tweet", utiliza interpolacion de strings para imprimir "Estoy escribiendo un tweet"
     val bird = "tweet"
     println(s"Estoy escribiendo un $bird")
@@ -38,6 +44,7 @@ val bird: String = tweet
 scala> println(s"Estoy escribiendo un $bird")
 Estoy escribiendo un tweet
 
+//SE UTILIZO UN PRINTLN PARA CONCATENAR UN STRING CON UNA VARIABLE DE NOMBRE 'BIRD' QUE TIENE EL VALOR "TWEET"
 
 Carlos Garcia
 
