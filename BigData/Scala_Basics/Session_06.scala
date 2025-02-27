@@ -6,6 +6,13 @@
 // println(isEven(3))
 // Practice 3, analyse the following code with your own words
 //------------------------------------
+
+//Este codigo lo que hace es que recorre una lista de enteros y determina si cada número es par o impar. Luego, se aplica esta función a dos listas diferentes
+//La función listEvens toma una lista de enteros (List[Int]) como parámetro y devuelve una cadena (String).
+//Condicional if-else para determinar si un número es par o impar
+//Basandose en el residuo de la operacion, n % 2 == 0 verifica si el número n es par (el residuo de la división entre n y 2 es 0).
+//
+
 def listEvens(list:List[Int]): String ={
     for(n <- list){
         if(n%2==0){
@@ -19,10 +26,35 @@ def listEvens(list:List[Int]): String ={
 
 val l = List(1,2,3,4,5,6,7,8)
 val l2 = List(4,3,22,55,7,8)
+
 listEvens(l)
+    1 is odd
+    2 is even
+    3 is odd
+    4 is even
+    5 is odd
+    6 is even
+    7 is odd
+    8 is even
+
 listEvens(l2)
+    4 is even
+    3 is odd
+    22 is even
+    55 is odd
+    7 is odd
+    8 is even
+
+
 //------------------------------------
 //3 7 afortunado
+
+//Recorre una lista de enteros y suma sus valores. Sin embargo, si encuentra el número 7, lo considera "afortunado" y suma 14 en lugar de 7. 
+//Finalmente, se llama a la función con una lista de ejemplo y se imprime el resultado.
+//La función afortunado toma una lista de enteros (List[Int]) como parámetro y devuelve un entero (Int).
+//Se declara una variable mutable res (resultado) inicializada en 0. Esta variable acumulará la suma de los valores de la lista.
+//Si el número n es igual a 7, se suma 14 a res (considerando el número como "afortunado").
+//Si el número n no es 7, se suma su valor normal a res.
 
 def afortunado(list:List[Int]): Int={
     var res=0
@@ -38,6 +70,8 @@ def afortunado(list:List[Int]): Int={
 
 val af= List(1,7,7)
 println(afortunado(af))
+
+    29
 
 //Carlos Garcia
 //-------------------------------------
