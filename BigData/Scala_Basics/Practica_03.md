@@ -2,14 +2,14 @@
 
 Alumno: Enrrique Jauregui<br/>
 
-// Practice 3, analyse the following code with your own words
-
+Practice 3, analyse the following code with your own words<br>
+Ejercicio 1<br>
 >[!NOTE]
->Este codigo lo que hace es que recorre una lista de enteros y determina si cada número es par o impar. Luego, se aplica esta función a dos listas diferentes
->La función listEvens toma una lista de enteros (List[Int]) como parámetro y devuelve una cadena (String).
->Condicional if-else para determinar si un número es par o impar
->Basandose en el residuo de la operacion, n % 2 == 0 verifica si el número n es par (el residuo de la división entre n y 2 es 0).
-
+>Este codigo lo que hace es que recorre una lista de enteros y determina si cada número es par o impar. Luego, se aplica esta función a dos listas diferentes<br>
+>La función listEvens toma una lista de enteros (List[Int]) como parámetro y devuelve una cadena (String).<br>
+>Condicional if-else para determinar si un número es par o impar<br>
+>Basandose en el residuo de la operacion, n % 2 == 0 verifica si el número n es par (el residuo de la división entre n y 2 es 0).<br>
+Scala<br>
 ```scala
 def listEvens(list:List[Int]): String ={
     for(n <- list){
@@ -47,15 +47,17 @@ listEvens(l2)
 ```
 
 ------------------------------------<br>
-3 7 afortunado
+Ejercicio 2<br>
+3 7 afortunado<br>
 
 >[!NOTE]
->Recorre una lista de enteros y suma sus valores. Sin embargo, si encuentra el número 7, lo considera "afortunado" y suma 14 en lugar de 7. 
->Finalmente, se llama a la función con una lista de ejemplo y se imprime el resultado.
->La función afortunado toma una lista de enteros (List[Int]) como parámetro y devuelve un entero (Int).
->Se declara una variable mutable res (resultado) inicializada en 0. Esta variable acumulará la suma de los valores de la lista.
->Si el número n es igual a 7, se suma 14 a res (considerando el número como "afortunado").
->Si el número n no es 7, se suma su valor normal a res.
+>Recorre una lista de enteros y suma sus valores. Sin embargo, si encuentra el número 7, lo considera "afortunado" y suma 14 en lugar de 7. <br>
+>Finalmente, se llama a la función con una lista de ejemplo y se imprime el resultado.<br>
+>La función afortunado toma una lista de enteros (List[Int]) como parámetro y devuelve un entero (Int).<br>
+>Se declara una variable mutable res (resultado) inicializada en 0. Esta variable acumulará la suma de los valores de la lista.<br>
+>Si el número n es igual a 7, se suma 14 a res (considerando el número como "afortunado").<br>
+>Si el número n no es 7, se suma su valor normal a res.<br>
+Scala<br>
 ```scala
 def afortunado(list:List[Int]): Int={
     var res=0
@@ -79,6 +81,8 @@ println(afortunado(af))
 
 Alumno: Carlos Garcia <br>
 //-------------------------------------
+Ejercicio 3<br>
+Scala<br>
 ```scala
 def balance(list:List[Int]): Boolean={
     var primera = 0
@@ -144,19 +148,20 @@ scala> balance(bl3)
 val res9: Boolean = false
 ```
 >[!NOTE]
-> Observaciones
-> el codigo verifica el balance de una lista de enteros y regresa un valor boleano,
-> si exite un punto en la lista donde se suma los elementos de la lista hasta ese punto y 
-> se resta los elementos a la izquierda es igual a la suma de los elementos de la derecha
-> para el primer resultado es true ya que 3+2 = 5 y 1 = 1
-> para el segundo resultado es true ya que 2+3 = 5 y 3+2 = 5
-> para el tercer resultado es false ya que 10+30 = 40 y 90 = 90 por lo que no existe un punto de balance en la lista
+> Observaciones<br>
+> el codigo verifica el balance de una lista de enteros y regresa un valor boleano,<br>
+> si exite un punto en la lista donde se suma los elementos de la lista hasta ese punto y<br>
+> se resta los elementos a la izquierda es igual a la suma de los elementos de la derecha<br>
+> para el primer resultado es true ya que 3+2 = 5 y 1 = 1<br>
+> para el segundo resultado es true ya que 2+3 = 5 y 3+2 = 5<br>
+> para el tercer resultado es false ya que 10+30 = 40 y 90 = 90 por lo que no existe un punto de balance en la lista<br>
 
 
 
 
 --------------------------------------
-
+Ejercicio 4<br>
+Scala<br>
 ```scala
 def palindromo(palabra:String):Boolean ={
     return (palabra == palabra.reverse)
