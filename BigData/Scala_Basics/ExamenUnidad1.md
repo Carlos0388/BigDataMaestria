@@ -22,6 +22,7 @@ val spark: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession
 infiera los tipos de datos.
 
 ```scala
+// Spark es la instancia de SparkSession, que es el punto de entrada para trabajar con DataFrames en Spark, ademas hace que Spark infiera automáticamente el tipo de datos de cada columna, sin esta opción, todas las columnas se tratarían como cadenas de texto.
 val df = spark.read.option("header","true").option("inferSchema","true").csv("Netflix_2011_2016.csv")
 
 //Resultado
@@ -30,6 +31,7 @@ val df: org.apache.spark.sql.DataFrame = [Date: date, Open: double ... 5 more fi
 
 3. ¿Cuáles son los nombres de las columnas?
 ```scala
+// Pedimos los datos de las columnas del DataFrame con el llamado "columns"
 df.columns
 
 //Resultado
@@ -38,6 +40,7 @@ val res0: Array[String] = Array(Date, Open, High, Low, Close, Volume, Adj Close)
 
 4. ¿Cómo es el esquema?
 ```scala
+//Muestra el esquema del DataFrame: Imprime en la consola la estructura del DataFrame, incluyendo, los nombres de las columnas, los tipos de datos de cada columna y si las columnas permiten valores nulos (nullable).
 df.printSchema()
 
 //Resultado
@@ -53,6 +56,7 @@ root
 
 5. Imprime las primeras 5 renglones.
 ```scala
+// Head selecciona los primeros valores, le asignamos solo 5
 df.head(5)
 
 //Resultado
@@ -61,6 +65,7 @@ val res2: Array[org.apache.spark.sql.Row] = Array([2011-10-24,119.100002,120.280
 
 6. Usa el método describe () para aprender sobre el DataFrame.
 ```scala
+// Muestra la descripcion del DataFrame
 df.describe().show()
 
 //Resultado
@@ -78,32 +83,67 @@ df.describe().show()
 7. Crea un nuevo dataframe con una columna nueva llamada “HV Ratio” que es la
 relación que existe entre el precio de la columna “High” frente a la columna
 “Volumen” de acciones negociadas por un día. Hint - es una operación
+
 ```scala
-
-val df2 = df.withColumn("HV Ratio",df("High")/df("Volume"))
-//Resultado
+// Ordena el DataFrame df por la columna "High" de forma descendente
 val df2: org.apache.spark.sql.DataFrame = [Date: date, Open: double ... 6 more fields]
+df.orderBy($"High".desc).show(1)
 
-//df.orderBy($"High".desc).show(1)
-//Resultado
-//scala> df.orderBy($"High".desc).show(5)
+// Muestra la tabla ya ordenada
+df2.show()
++----------+-----------------+------------------+----------+-----------------+---------+------------------+--------------------+
+|      Date|             Open|              High|       Low|            Close|   Volume|         Adj Close|            HV Ratio|
++----------+-----------------+------------------+----------+-----------------+---------+------------------+--------------------+
+|2011-10-24|       119.100002|120.28000300000001|115.100004|       118.839996|120460200|         16.977142|9.985040951285156E-7|
+|2011-10-25|        74.899999|         79.390001| 74.249997|        77.370002|315541800|11.052857000000001|2.515989989281927E-7|
+|2011-10-26|            78.73|         81.420001| 75.399997|        79.400002|148733900|         11.342857|5.474206014903126E-7|
+|2011-10-27|        82.179998| 82.71999699999999| 79.249998|80.86000200000001| 71190000|11.551428999999999|1.161960907430818...|
+|2011-10-28|        80.280002|         84.660002| 79.599999|84.14000300000001| 57769600|             12.02|1.465476686700271...|
+|2011-10-31|83.63999799999999|         84.090002| 81.450002|        82.080003| 39653600|         11.725715|2.120614572195210...|
+|2011-11-01|        80.109998|         80.999998|     78.74|        80.089997| 33016200|         11.441428|2.453341026526372E-6|
+|2011-11-02|        80.709998|         84.400002| 80.109998|        83.389999| 41384000|         11.912857|2.039435578967717E-6|
+|2011-11-03|        84.130003|         92.600003| 81.800003|        92.290003| 94685500|13.184285999999998| 9.77974483949496E-7|
+|2011-11-04|91.46999699999999| 92.89000300000001| 87.749999|        90.019998| 84483700|             12.86|1.099502069629999...|
+|2011-11-07|             91.0|         93.839998| 89.979997|        90.830003| 47485200|         12.975715|1.976194645910725...|
+|2011-11-08|91.22999899999999|         92.600003| 89.650002|        90.470001| 31906000|         12.924286|2.902275528113834...|
+|2011-11-09|        89.000001|         90.440001| 87.999998|        88.049999| 28756000|         12.578571|3.145082800111281E-6|
+|2011-11-10|        89.290001| 90.29999699999999| 84.839999|85.11999899999999| 39614400|             12.16|2.279474054889131E-6|
+|2011-11-11|        85.899997|         87.949997|      83.7|        87.749999| 38140200|         12.535714|2.305965805108520...|
+|2011-11-14|        87.989998|              88.1|     85.45|        85.719999| 21811300|         12.245714|4.039190694731629...|
+|2011-11-15|            85.15|         87.050003| 84.499998|        86.279999| 21372400|         12.325714|4.073010190713256...|
+|2011-11-16|        86.460003|         86.460003| 80.890002|        81.180002| 34560400|11.597142999999999|2.501707242971725E-6|
+|2011-11-17|            80.77|         80.999998| 75.789999|        76.460001| 52823400|         10.922857|1.533411291208063...|
+|2011-11-18|             76.7|         78.999999| 76.039998|        78.059998| 34729100|         11.151428|2.274749388841058...|
++----------+-----------------+------------------+----------+-----------------+---------+------------------+--------------------+
+only showing top 20 rows
 //+----------+-----------------+-----------------+----------+-----------------+--------+------------------+
-//|      Date|             Open|             High|       Low|            Close|  Volume|         Adj Close|
-//+----------+-----------------+-----------------+----------+-----------------+--------+------------------+
-//|2015-07-13|686.6900019999999|       716.159996|686.550026|       707.610001|33205200|101.08714300000001|
-//|2015-07-14|       708.900017|       711.449982|697.569984|       702.600006|19736500|        100.371429|
-//|2015-06-24|       700.099976|       706.239983|674.779984|678.6099780000001|77138600|         96.944283|
-//|2015-06-10|       653.769997|692.7900089999999|652.580009|       671.100006|57121400|         95.871429|
-//|2015-07-10|       682.660004|       689.519974|678.300011|       680.599983|21636300|         97.228569|
-//+----------+-----------------+-----------------+----------+-----------------+--------+------------------+
-//only showing top 5 rows
 ```
 
 8. ¿Qué día tuvo el pico más alto en la columna “Open”?
 
+```scala
+// Encuentra el valor máximo en la columna "Open"
+val maxOpenRow = df.agg(max("Open")).first()
+val maxOpenRow: org.apache.spark.sql.Row = [708.900017]
+
+// Filtra la fila donde ocurrió ese valor máximo
+val maxOpenValue = maxOpenRow.getAs[Double]("max(Open)")
+val maxOpenValue: Double = 708.900017
+val maxDayRow = df.filter(df("Open") === maxOpenValue).first()
+val maxDayRow: org.apache.spark.sql.Row = [2015-07-14,708.900017,711.449982,697.569984,702.600006,19736500,100.371429]
+
+//Imprime la fecha correspondiente a ese valor máximo:
+println(s"El día con el pico más alto en la columna 'Open' es: ${maxDayRow.getAs[String]("Date")}")
+
+//Resultado
+El día con el pico más alto en la columna 'Open' es: 2015-07-14
+```
+
 
 9. ¿Cuál es el significado de la columna Cerrar “Close” en el contexto de información
 financiera, explíquelo no hay que codificar nada?
+
+La columna "Cerrar" representa el precio de cierre de un activo en un día de negociación específico. Este precio es el último precio al que se negoció el activo antes de que el mercado cerrara ese día.
 
 ```Scala
 df.select(mean("Close")).show()
