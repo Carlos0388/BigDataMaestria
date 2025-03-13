@@ -5,24 +5,41 @@
 # Examen Unidad 1 Big Data
 
 Iniciar con el programa para poder resolver las preguntas del examen <br>
+1. Comienza una simple sesión Spark.
+   
 Scala
 ```scala
+
 import org.apache.spark.sql.SparkSession
 
 val spark = SparkSession.builder().getOrCreate()
-//Resultado 
+
+//Resultado
 val spark: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@695d804
+```
 
+2. Cargue el archivo Netflix Stock CSV en dataframe llamado df, haga que Spark
+infiera los tipos de datos.
+
+```scala
 val df = spark.read.option("header","true").option("inferSchema","true").csv("Netflix_2011_2016.csv")
-//Resultado 
+
+//Resultado
 val df: org.apache.spark.sql.DataFrame = [Date: date, Open: double ... 5 more fields]
+```
 
-
+3. ¿Cuáles son los nombres de las columnas?
+```scala
 df.columns
-//Resultado 
-val res0: Array[String] = Array(Date, Open, High, Low, Close, Volume, Adj Close)
 
+//Resultado
+val res0: Array[String] = Array(Date, Open, High, Low, Close, Volume, Adj Close)
+```
+
+4. ¿Cómo es el esquema?
+```scala
 df.printSchema()
+
 //Resultado
 root
  |-- Date: date (nullable = true)
@@ -32,12 +49,20 @@ root
  |-- Close: double (nullable = true)
  |-- Volume: integer (nullable = true)
  |-- Adj Close: double (nullable = true)
+```
 
+5. Imprime las primeras 5 renglones.
+```scala
 df.head(5)
+
 //Resultado
 val res2: Array[org.apache.spark.sql.Row] = Array([2011-10-24,119.100002,120.28000300000001,115.100004,118.839996,120460200,16.977142], [2011-10-25,74.899999,79.390001,74.249997,77.370002,315541800,11.052857000000001], [2011-10-26,78.73,81.420001,75.399997,79.400002,148733900,11.342857], [2011-10-27,82.179998,82.71999699999999,79.249998,80.86000200000001,71190000,11.551428999999999], [2011-10-28,80.280002,84.660002,79.599999,84.14000300000001,57769600,12.02]) 
+```
 
+6. Usa el método describe () para aprender sobre el DataFrame.
+```scala
 df.describe().show()
+
 //Resultado
 +-------+------------------+------------------+------------------+------------------+--------------------+------------------+
 |summary|              Open|              High|               Low|             Close|              Volume|         Adj Close|
@@ -48,7 +73,12 @@ df.describe().show()
 |    min|         53.990001|         55.480001|             52.81|              53.8|             3531300|          7.685714|
 |    max|        708.900017|        716.159996|        697.569984|        707.610001|           315541800|        130.929993|
 +-------+------------------+------------------+------------------+------------------+--------------------+------------------+
+```
 
+7. Crea un nuevo dataframe con una columna nueva llamada “HV Ratio” que es la
+relación que existe entre el precio de la columna “High” frente a la columna
+“Volumen” de acciones negociadas por un día. Hint - es una operación
+```scala
 
 val df2 = df.withColumn("HV Ratio",df("High")/df("Volume"))
 //Resultado
@@ -67,8 +97,15 @@ val df2: org.apache.spark.sql.DataFrame = [Date: date, Open: double ... 6 more f
 //|2015-07-10|       682.660004|       689.519974|678.300011|       680.599983|21636300|         97.228569|
 //+----------+-----------------+-----------------+----------+-----------------+--------+------------------+
 //only showing top 5 rows
+```
+
+8. ¿Qué día tuvo el pico más alto en la columna “Open”?
 
 
+9. ¿Cuál es el significado de la columna Cerrar “Close” en el contexto de información
+financiera, explíquelo no hay que codificar nada?
+
+```Scala
 df.select(mean("Close")).show()
 //Resultado
 +----------------+
@@ -76,12 +113,12 @@ df.select(mean("Close")).show()
 +----------------+
 |230.522453845909|
 +----------------+
-
-
 ```
+
 Preguntas del Exmamen
 
-1.- What is the max and min of the Volume column?
+10.- ¿Cuál es el máximo y mínimo de la columna “Volumen”?
+
 ```scala
 df.select(max("Volume")).show()
 df.select(min("Volume")).show()
@@ -107,13 +144,14 @@ scala> df.select(min("Volume")).show()
 >
 
 
-// For Scala/Spark $ Syntax
+11).- Con Sintaxis Scala/Spark $ conteste lo siguiente:
+
 ```scala
 import spark.implicits._
 //Resultado se realizo la importacion 
 ```
 
-2.- How many days was the Close lower than $ 600?
+a).- ¿Cuántos días fue la columna “Close” inferior a $ 600?
 ```scala
 df.filter($"Close"<600).count()
 ```
@@ -126,7 +164,7 @@ val res7: Long = 1218
 >
 
 
-3.- What percentage of the time was the High greater than $500 ?
+b).- ¿Qué porcentaje del tiempo fue la columna “High” mayor que $ 500?
 
 ```scala
 (df.filter($"High">500).count()*1.0/df.count())*100
@@ -140,7 +178,8 @@ val res8: Double = 4.924543288324067
 >
 
 
-4.- What is the Pearson correlation between High and Volume?
+c).- ¿Cuál es la correlación de Pearson entre columna “High” y la columna
+“Volumen”?
 
 ```scala
 df.select(corr("High","Volume")).show()
@@ -158,7 +197,7 @@ scala> df.select(corr("High","Volume")).show()
 >
 
 
-5.- What is the max High per year?
+d).- ¿Cuál es el máximo de la columna “High” por año?
 
 ```scala
 val yeardf = df.withColumn("Year",year(df("Date")))
@@ -189,7 +228,7 @@ scala> yearmaxs.select($"Year",$"max(High)").show()
 >
 
 
-6.- What is the average Close for each Calender Month?
+e).- ¿Cuál es el promedio de la columna “Close” para cada mes del calendario?
 
 ```scala
 val monthdf = df.withColumn("Month",month(df("Date")))
@@ -222,6 +261,7 @@ scala> monthavgs.select($"Month",$"avg(Close)").show()
 |    2| 254.1954634020619|
 +-----+------------------+
 ```
+
 >[!NOTE]
 >
 
