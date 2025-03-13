@@ -1,14 +1,14 @@
-Materia: Big Data
-Clave:
-Grupo: 
-Fecha: 12/03/2025     
-Docente: Dr. José Christian Romero Hernández   
-Unidad(es) a evaluar: Unidad 1 Big Data  I
-Ciclo: 2025-1
-Alumno: Carlos Garcia, Enrrique Jauregui
-Calificacion:
-Instrucciones 
-Responder las siguientes preguntas con Spark DataFrames y Scala utilizando el “CSV” Netflix_2011_2016.csv que se encuentra en la carpeta de spark-dataframes. <br>
+Materia: Big Data<br>
+Clave:<br>
+Grupo: <br>
+Fecha: 12/03/2025<br>  
+Docente: Dr. José Christian Romero Hernández<br>
+Unidad(es) a evaluar: Unidad 1 Big Data I <br>
+Ciclo: 2025-1<br>
+Alumno: Carlos Garcia, Enrrique Jauregui<br>
+Calificacion:<br>
+
+Instrucciones: Responder las siguientes preguntas con Spark DataFrames y Scala utilizando el “CSV” Netflix_2011_2016.csv que se encuentra en la carpeta de spark-dataframes. <br>
 
 1.	Comienza una simple sesión Spark.
 
