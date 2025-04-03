@@ -15,13 +15,27 @@ Logger.getLogger("org").setLevel(Level.ERROR)
 
 // Inicie una simple Sesion Spark
 val spark = SparkSession.builder.appName("LinearRegression").getOrCreate()
+Terminal
+warning: 1 deprecation (since 2.13.3); for details, enable `:setting -deprecation` or `:replay -deprecation`
+25/03/31 01:34:55 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
+val spark: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@97293ef
 
 // Utilice Spark para el archivo csv Clean-Ecommerce.
 val data = spark.read.option("header","true").option("inferSchema","true")csv("Clean-Ecommerce.csv")
+Terminal
+val data: org.apache.spark.sql.DataFrame = [Email: string, Avatar: string ... 5 more fields]
 
 // Imprima el schema en el DataFrame.
 data.printSchema()
-
+Terminal
+root
+ |-- Email: string (nullable = true)
+ |-- Avatar: string (nullable = true)
+ |-- Avg Session Length: double (nullable = true)
+ |-- Time on App: double (nullable = true)
+ |-- Time on Website: double (nullable = true)
+ |-- Length of Membership: double (nullable = true)
+ |-- Yearly Amount Spent: double (nullable = true)
 
 // Imprima un renglon de ejemplo del DataFrane.
 val colnames = data.columns
@@ -34,11 +48,42 @@ for(ind <- Range(1, colnames.length)){
   println("\n")
 }
 
+Terminal
+val colnames: Array[String] = Array(Email, Avatar, Avg Session Length, Time on App, Time on Website, Length of Membership, Yearly Amount Spent)
+val firstrow: org.apache.spark.sql.Row = [mstephenson@fernandez.com,Violet,34.49726772511229,12.65565114916675,39.57766801952616,4.0826206329529615,587.9510539684005]
+Example Data Row
+
+scala> for(ind <- Range(1, colnames.length)){
+     |   println(colnames(ind))
+     |   println(firstrow(ind))
+     |   println("\n")
+     | }
+Avatar
+Violet
+
+Avg Session Length
+34.49726772511229
+
+Time on App
+12.65565114916675
+
+Time on Website
+39.57766801952616
+
+Length of Membership
+4.0826206329529615
+
+Yearly Amount Spent
+587.9510539684005
+
+
 //////////////////////////////////////////////////////
 //// Configure el DataFrame para Machine Learning ////
 //////////////////////////////////////////////////////
 
 // Transforme el data frame para que tome la forma de ("label","features")
+
+
 val df = data.select("Price","Quantity","Discount","Shipping","Tax","Country","Region","Category","Sub-Category","Sales")
 .withColumn("label", col("Price"))
 
