@@ -1,0 +1,5 @@
+DecisionTreeClassificationModel: uid=dtc_6753bd59e62f, depth=1, numNodes=3, numClasses=2, numFeatures=692
+  If (feature 512 <= 1.5)
+   Predict: 0.0
+  Else (feature 512 > 1.5)
+   Predict: 1.0
