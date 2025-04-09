@@ -165,7 +165,19 @@ object DecisionTreeClassificationExample {
         Else (feature 434 > 88.5)
             Predict: 0.0
     
-    
+    //Diagrama del arbol
+                         [feature 434 <= 88.5]
+                        /                    \
+                    Sí                        No
+                 /                               \
+    [feature 99 in {2.0}]                      Predict: 0.0
+       /          \
+    Sí           No
+   /               \
+Predict: 0.0    Predict: 1.0
+
+
+
     // $example off$
 
     spark.stop()
