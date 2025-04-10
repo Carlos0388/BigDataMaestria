@@ -54,7 +54,7 @@ object DecisionTreeClassificationExample {
     val labelIndexer: org.apache.spark.ml.feature.StringIndexerModel = StringIndexerModel: uid=strIdx_2839a3597602, handleInvalid=error
 
     // Automatically identify categorical features, and index them. // features with > 4 distinct values are treated as continuous.
-    val featureIndexer = new VectorIndexer().setInputCol("features").setOutputCol("indexedFeatures").setMaxCategories(10).fit(data)
+    val featureIndexer = new VectorIndexer().setInputCol("features").setOutputCol("indexedFeatures").setMaxCategories(4).fit(data)
 
     Terminal
     val featureIndexer: org.apache.spark.ml.feature.VectorIndexerModel = VectorIndexerModel: uid=vecIdx_6251a70c0a76, numFeatures=692, handleInvalid=error
