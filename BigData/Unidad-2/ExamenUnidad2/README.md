@@ -2,9 +2,8 @@
 
 Instrucciones: Desarrollar las siguientes instrucciones en Spark con el lenguaje de programación Scala, utilizando solo la documentación de la librería de Machine Learning Mllib de Spark y Google. 
 
-1.Cargar en un dataframe de la fuente de datos Iris.csv que se encuentra enhttps://github.com/jcromerohdz/iris, elaborar la limpieza de datos necesaria paraser procesado por el siguiente algoritmo (Importante, esta limpieza debe ser pormedio de un script de Scala en Spark).
-
-    a.Utilice el algoritmo de Machine Learning Multilayer Perceptron Classifier de la librería Mllib de Spark
+1. Cargar en un dataframe de la fuente de datos Iris.csv que se encuentra enhttps://github.com/jcromerohdz/iris, elaborar la limpieza de datos necesaria paraser procesado por el siguiente algoritmo (Importante, esta limpieza debe ser pormedio de un script de Scala en Spark).<br>
+a. Utilice el algoritmo de Machine Learning Multilayer Perceptron Classifier de la librería Mllib de Spark
 
 ```scala
 import org.apache.spark.sql.SparkSession
@@ -53,7 +52,7 @@ scala> val df = rawDF.na.drop().dropDuplicates()
 val df: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] = [sepal_length: double, sepal_width: double ... 3 more fields]
 ```
 
-2.¿Cuáles son los nombres de las columnas?
+2. ¿Cuáles son los nombres de las columnas?
 ```scala
 println("Column names:")
 df.columns.foreach(println)
@@ -89,7 +88,7 @@ root
  |-- petal_width: double (nullable = true)
  |-- species: string (nullable = true)
 ```
-4.Imprime las primeras 5 columnas.
+4. Imprime las primeras 5 columnas.
 ```scala
 println("First 5 rows:")
 df.show(5)
@@ -111,7 +110,7 @@ scala>     df.show(5)
 +------------+-----------+------------+-----------+-------+
 only showing top 5 rows
 ```
-5.Usa el método describe () para aprender más sobre los datos del DataFrame.
+5. Usa el método describe () para aprender más sobre los datos del DataFrame.
 ```scala
 println("Describe summary:")
 df.describe().show()
@@ -134,7 +133,7 @@ scala>     df.describe().show()
 +-------+------------------+-------------------+------------------+------------------+---------+
 
 ```
-6.Haga la transformación pertinente para los datos categóricos los cuales serán nuestras etiquetas a clasificar.
+6. Haga la transformación pertinente para los datos categóricos los cuales serán nuestras etiquetas a clasificar.
 ```scala
 val labelIndexer = new StringIndexer().setInputCol("species").setOutputCol("label").fit(df)
 val indexedDF = labelIndexer.transform(df)
@@ -169,7 +168,7 @@ val trainingData: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] = [feat
 val testData: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] = [features: vector, label: double]
 
 ```
-7.Construya el modelo de clasificación y explique su arquitectura.
+7. Construya el modelo de clasificación y explique su arquitectura.
 ```scala
 // Arquitectura: tamaño de la capa de entrada = 4 (características), dos capas ocultas con 5 y 4 nodos, tamaño de la capa de salida = 3 (clases)
 val layers = Array[Int](4, 5, 4, 3)
@@ -191,7 +190,8 @@ scala> val model = trainer.fit(trainingData)
 val model: org.apache.spark.ml.classification.MultilayerPerceptronClassificationModel = MultilayerPerceptronClassificationModel: uid=mlpc_9fc5112346ae, numLayers=4, numClasses=3, numFeatures=4
 
 ```
-8.Imprima los resultados del modelo y de sus observaciones.
+8. 
+Imprima los resultados del modelo y de sus observaciones.
 ```scala
 val result = model.transform(testData)
 val predictionAndLabels = result.select("prediction", "label")
