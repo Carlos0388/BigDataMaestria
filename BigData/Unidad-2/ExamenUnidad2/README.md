@@ -190,8 +190,7 @@ scala> val model = trainer.fit(trainingData)
 val model: org.apache.spark.ml.classification.MultilayerPerceptronClassificationModel = MultilayerPerceptronClassificationModel: uid=mlpc_9fc5112346ae, numLayers=4, numClasses=3, numFeatures=4
 
 ```
-8. 
-Imprima los resultados del modelo y de sus observaciones.
+8. Imprima los resultados del modelo y de sus observaciones.
 ```scala
 val result = model.transform(testData)
 val predictionAndLabels = result.select("prediction", "label")
