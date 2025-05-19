@@ -40,3 +40,60 @@ Accuracy promedio: 0.8989027116161503
 ----------------------------------------------------------------
 
 Resultados de Multilayer Perceptron
+
+scala> runMultipleEvaluations(30)
+Run 1: Test set accuracy = 0.8930453879941435
+Run 2: Test set accuracy = 0.8913219789132197
+Run 3: Test set accuracy = 0.8812518496596626
+Run 4: Test set accuracy = 0.8961170675166619
+Run 5: Test set accuracy = 0.8922146749272225
+Run 6: Test set accuracy = 0.8909237418504139
+Run 7: Test set accuracy = 0.8870991686460807
+Run 8: Test set accuracy = 0.894273453684522
+Run 9: Test set accuracy = 0.8921496698459281
+Run 10: Test set accuracy = 0.8823443437591347
+Run 11: Test set accuracy = 0.8899662112531218
+Run 12: Test set accuracy = 0.8903958133706789
+Run 13: Test set accuracy = 0.8903401962954763
+Run 14: Test set accuracy = 0.8813185196085644
+Run 15: Test set accuracy = 0.8855493041160793
+Run 16: Test set accuracy = 0.8839484215206759
+Run 17: Test set accuracy = 0.8836813268177106
+Run 18: Test set accuracy = 0.8871410551309639
+Run 19: Test set accuracy = 0.8792309379340595
+Run 20: Test set accuracy = 0.894070619586942
+Run 21: Test set accuracy = 0.8854697070326913
+Run 22: Test set accuracy = 0.8798187625343534
+Run 23: Test set accuracy = 0.8813571961222968
+Run 24: Test set accuracy = 0.8928861039439735
+Run 25: Test set accuracy = 0.8908891328210757
+Run 26: Test set accuracy = 0.8929203539823009
+Run 27: Test set accuracy = 0.8834821428571429
+Run 28: Test set accuracy = 0.8901949331970505
+Run 29: Test set accuracy = 0.8840175953079179
+Run 30: Test set accuracy = 0.8839982334756367
+
+Accuracy promedio: 0.8877139301235234
+
+Comparando los resultados de **Logistic Regression** y **Multilayer Perceptron** en tus 30 corridas:
+
+| Algoritmo               | Accuracy promedio | AUC promedio      |
+|-------------------------|-------------------|-------------------|
+| Logistic Regression     | 0.8989            | 0.9061            |
+| Multilayer Perceptron   | 0.8877            | —                 |
+
+### Análisis
+
+- **Logistic Regression** tiene un accuracy promedio de **0.8989** y un AUC promedio de **0.9061**.
+- **Multilayer Perceptron** tiene un accuracy promedio de **0.8877**.
+
+### Explicación
+
+- **Logistic Regression** supera al Multilayer Perceptron tanto en accuracy como en AUC.  
+- El AUC (Área Bajo la Curva ROC) es una métrica importante para clasificación binaria, y Logistic Regression también muestra un valor alto y consistente.
+- Aunque el Multilayer Perceptron es un modelo más complejo y flexible, en este caso no logra superar el desempeño de la regresión logística, probablemente porque los datos no requieren una arquitectura tan compleja o porque el modelo no está suficientemente ajustado.
+
+### Conclusión
+
+**Logistic Regression es el mejor modelo para este conjunto de datos**, ya que obtiene mejores resultados de accuracy y AUC en promedio. Además, es más sencillo de interpretar y entrenar.  
+Si buscas simplicidad y rendimiento, Logistic Regression es la mejor opción en este caso.

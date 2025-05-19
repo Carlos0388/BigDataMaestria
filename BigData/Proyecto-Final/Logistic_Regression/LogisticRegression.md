@@ -321,7 +321,11 @@ La precisión del modelo. Finalmente, hemos detenido el contexto de Spark.
   // Llama a la función en tu main:
   runMultipleEvaluations(30)
 ```
-En este ejemplo, hemos creado una función `runMultipleEvaluations` que ejecuta el modelo 30 veces con diferentes conjuntos de datos de entrenamiento y prueba. Después de cada ejecución, calculamos el área bajo la curva ROC y la precisión del modelo y los almacenamos en arrays. Finalmente, imprimimos el área bajo la curva ROC y la precisión promedio de los 30 ejecuciones. Esto nos da una idea de la estabilidad y consistencia del modelo.
+En este ejemplo, hemos creado una función `runMultipleEvaluations` que ejecuta 
+el modelo 30 veces con diferentes conjuntos de datos de entrenamiento y prueba. Después de cada ejecución, calculamos el área bajo la curva ROC y la precisión 
+del modelo y los almacenamos en arrays. 
+Finalmente, imprimimos el área bajo la curva ROC y la precisión promedio de los 30 ejecuciones. 
+Esto nos da una idea de la estabilidad y consistencia del modelo.
 
 
 
