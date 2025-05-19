@@ -14,7 +14,7 @@ Contenido del documento de proyecto final
 5. Implementación (Que herramientas usaron y porque (en este caso spark con scala)) (Enrrique y carlos)
 6. Resultados (Un tabular con los datos de 30 corridas por cada algoritmo y hacer un promedio para ver su preformance)
     y su respectiva explicacion. (Carlos - implementacion del codigo)
-7. Conclusiones (carlos y enrrique)
+7. Conclusiones (carlos dio conclusion de los resulytados y enrrique con documento)
 8. Referencias (No wikipedia por ningun motivo, traten que sean de articulos cientificos) (enrique)
     El documento debe estar referenciado 
 
@@ -27,4 +27,4 @@ Programa Educativo: Maestría en Gestión de las Tecnologías de la Información
 Materia: Big Data
 Profesor: Dr. José Christian Romero Hernández 
 Alumno: Carlos Garcia, Enrrique Jauregui
-Tijuana, Baja California, a 14 de mayo de 2025.
+Tijuana, Baja California, a 21 de mayo de 2025.

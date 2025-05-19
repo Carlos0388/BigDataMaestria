@@ -367,8 +367,8 @@ ime en la consola.
   // Llama a la función en tu main:
   runMultipleEvaluations(30)
 ```
-En este ejemplo, se ejecutan 30 veces el modelo y se calcula la precisión prom
-edia de las 30 ejecuciones. La precisión promedio se imprime en la consola
+En este ejemplo, se ejecutan 30 veces el modelo y se calcula la precisión promedia 
+de las 30 ejecuciones. La precisión promedio se imprime en la consola
 La precisión promedio se calcula sumando todas las precisiones y dividiendo por el
 número de ejecuciones.
   

@@ -19,4 +19,4 @@ Dr. José Christian Romero Hernández
 Carlos García  
 Ejordque Jauregui
 
-Tijuana, Baja California, a 14 de mayo de 2025.
+Tijuana, Baja California, a 21 de mayo de 2025.
