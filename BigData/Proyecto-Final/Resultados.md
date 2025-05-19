@@ -79,7 +79,7 @@ scala> runMultipleEvaluations(30)
 
 Accuracy promedio: 0.8877139301235234
 
-Comparando los resultados de **Logistic Regression** y **Multilayer Perceptron** en tus 30 corridas:
+Comparando los resultados de **Logistic Regression** y **Multilayer Perceptron** en las 30 corridas:
 
 | Algoritmo               | Accuracy promedio | AUC promedio      |
 |-------------------------|-------------------|-------------------|
