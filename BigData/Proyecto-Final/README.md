@@ -11,7 +11,7 @@ Contenido del documento de proyecto final
 2. Indice (Enrrique)
 3. Introduccion (Enrrique)
 4. Marco teorico de los algoritmos (Enrrique)
-5. Implementación (Que herramientas usaron y porque (en este caso spark con scala)) (Enrrique)
+5. Implementación (Que herramientas usaron y porque (en este caso spark con scala)) (Enrrique y carlos)
 6. Resultados (Un tabular con los datos de 30 corridas por cada algoritmo y hacer un promedio para ver su preformance)
     y su respectiva explicacion. (Carlos - implementacion del codigo)
 7. Conclusiones (carlos y enrrique)
