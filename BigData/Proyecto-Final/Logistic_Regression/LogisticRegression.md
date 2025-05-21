@@ -328,4 +328,6 @@ Finalmente, imprimimos el área bajo la curva ROC y la precisión promedio de lo
 Esto nos da una idea de la estabilidad y consistencia del modelo.
 
 
-[⬅️ Volver al Índice](./README.md)
+[⬅️ Volver al Índice](./Proyecto-Final/README.md)
+
+
