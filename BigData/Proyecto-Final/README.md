@@ -7,24 +7,25 @@ Contenido del proyecto
 Con el siguiente data set: https://archive.ics.uci.edu/ml/datasets/Bank+Marketing
 
 Contenido del documento de proyecto final
-1. Portada (Carlos)
-2. Indice (Enrrique)
-3. Introduccion (Enrrique)
-4. Marco teorico de los algoritmos (Enrrique)
-5. Implementación (Que herramientas usaron y porque (en este caso spark con scala)) (Enrrique y carlos)
+1. Portada
+2. Indice 
+3. Introduccion 
+4. Marco teorico de los algoritmos 
+5. Implementación (Que herramientas usaron y porque (en este caso spark con scala))
 6. Resultados (Un tabular con los datos de 30 corridas por cada algoritmo y hacer un promedio para ver su preformance)
-    y su respectiva explicacion. (Carlos - implementacion del codigo)
-7. Conclusiones (carlos dio conclusion de los resulytados y enrrique con documento)
-8. Referencias (No wikipedia por ningun motivo, traten que sean de articulos cientificos) (enrique)
+    y su respectiva explicacion.
+7. Conclusiones 
+8. Referencias (No wikipedia por ningun motivo, traten que sean de articulos cientificos) 
     El documento debe estar referenciado 
 
-Universidad Autónoma de Baja California
-Facultad de Contaduría y Administración
- 
-Proyecto Final Big Data
+# Índice
 
-Programa Educativo: Maestría en Gestión de las Tecnologías de la Información y la Comunicación
-Materia: Big Data
-Profesor: Dr. José Christian Romero Hernández 
-Alumno: Carlos Garcia, Enrrique Jauregui
-Tijuana, Baja California, a 21 de mayo de 2025.
+1. [Portada](./Portada.md)
+2. [Introducción](./Introduccion.md)
+3. [Marco Teorico](./MarcoTeorico.md)
+4. [Implementación](./Implementacion.md)
+    - [Regresión Logística](./Logistic_Regression/LogisticRegression.md)
+    - [Multilayer Perceptron](./Multilayer_Perceptron/MultolayerPerceptronV2.md)
+5. [Resultados](./Resultados.md)
+6. [Conclusiones](./Conclusiones.md)
+7. [Referencias](./Referencias.md)
