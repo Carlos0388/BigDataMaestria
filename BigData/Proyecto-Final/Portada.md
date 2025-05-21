@@ -6,6 +6,8 @@
 
 ![escudo](https://github.com/user-attachments/assets/f0211137-058b-4812-b8b1-d16d4936afa3)
 
+<img src="https://github.com/user-attachments/assets/f0211137-058b-4812-b8b1-d16d4936afa3" alt="escudo" width="150"/>
+
 **Programa Educativo:**  
 Maestría en Gestión de las Tecnologías de la Información y la Comunicación
 
