@@ -7,3 +7,5 @@ El ejemplo utilizado en el proyecto muestra que estos algoritmos se pueden utili
 El aprendizaje automático no es solo teoría, sino tambien una excelente herramienta para resolver problemas cotidianos.
 
 Al explicar los algoritmos de forma sencilla, queda claro que no son magia, cada uno sigue un proceso lógico para aprender de los datos, entender esto ayuda a cualquier persona a generar confianza entre el usuario y la máquina, no solo a programadores.
+
+[⬅️ Volver al Índice](./README.md)

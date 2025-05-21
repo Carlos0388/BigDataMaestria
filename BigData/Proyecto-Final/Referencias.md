@@ -13,3 +13,5 @@
 > Gómez-Ríos, A., Luengo, J., & Herrera, F. (2020). Clasificación de datos desbalanceados mediante aprendizaje profundo: Una revisión. Revista Iberoamericana de Inteligencia Artificial
 
 > Goodfellow, I., Bengio, Y., & Courville, A. (2016). Deep learning. MIT Press. 
+
+[⬅️ Volver al Índice](./README.md)

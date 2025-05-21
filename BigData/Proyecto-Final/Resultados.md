@@ -100,3 +100,5 @@ Comparando los resultados de **Logistic Regression** y **Multilayer Perceptron**
 ### Conclusión
 
 **Logistic Regression es el mejor modelo para este conjunto de datos**, ya que obtiene mejores resultados de accuracy y AUC en promedio. Además, es más sencillo de interpretar y entrenar. Si se busca la simplicidad y rendimiento de los algoritmos, Logistic Regression es la mejor opción en este caso.
+
+[⬅️ Volver al Índice](./README.md)

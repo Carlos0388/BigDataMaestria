@@ -27,3 +27,4 @@ El Perceptrón Multicapa es una red neuronal artificial compuesta por múltiples
 
 El más complejo y utilizado por las inteligencias artificiales, es como un cerebro artificial con muchas capas de “*neuronas*” que trabajan juntas para encontrar patrones difíciles. Probando y corrigiendo errores poco a poco, se retro alimenta de cada iteración, por eso se dice que **aprende**.
 
+[⬅️ Volver al Índice](./README.md)
