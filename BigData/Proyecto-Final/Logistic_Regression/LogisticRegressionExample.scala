@@ -16,14 +16,14 @@ object LogisticRegressionExample {
     data.show(5)
 
     // Target column is "y", convert it to label 0/1
-    val labelIndexer = new StringIndexer().setInputCol("y").setOutputCol("label").fit(data)
+    val labelIndexer = new StringIndexer().setInputCol("y").setOutputCol("label")
 
     // List of categorical columns to index and encode
     val categoricalCols = Array("job", "marital", "education", "default", "housing", "loan", "contact", "month", "poutcome")
 
     // Index categorical columns
     val indexers = categoricalCols.map { colName =>
-      new StringIndexer().setInputCol(colName).setOutputCol(colName + "Index").fit(data)
+      new StringIndexer().setInputCol(colName).setOutputCol(colName + "Index")
     }
 
     // OneHotEncode indexed categorical columns
@@ -31,8 +31,8 @@ object LogisticRegressionExample {
       new OneHotEncoder().setInputCol(colName + "Index").setOutputCol(colName + "Vec")
     }
 
-    // Numeric columns to be used as features
-    val numericCols = Array("age", "duration", "campaign", "pdays", "previous", "emp.var.rate", "cons.price.idx", "cons.conf.idx", "euribor3m", "nr.employed")
+    // Numeric columns to be used as features (solo columnas que existan en tu dataset)
+    val numericCols = Array("age", "duration", "campaign", "pdays", "previous", "balance", "day")
 
     // Assemble all features into a single vector column
     val assembler = new VectorAssembler().setInputCols(encoders.map(_.getOutputCol) ++ numericCols).setOutputCol("features")
@@ -40,8 +40,8 @@ object LogisticRegressionExample {
     // Create logistic regression model
     val lr = new LogisticRegression().setFeaturesCol("features").setLabelCol("label").setMaxIter(100).setRegParam(0.01)
 
-    // Create pipeline stages
-    val stages = indexers ++ encoders ++ Array(assembler, lr)
+    // Create pipeline stages (labelIndexer debe ir primero)
+    val stages = Array(labelIndexer) ++ indexers ++ encoders ++ Array(assembler, lr)
 
     val pipeline = new Pipeline().setStages(stages)
 
@@ -71,3 +71,37 @@ object LogisticRegressionExample {
     spark.stop()
   }
 }
+
+  def runMultipleEvaluations(numRuns: Int): Unit = {
+    val aucResults = scala.collection.mutable.ArrayBuffer[Double]()
+    val accuracyResults = scala.collection.mutable.ArrayBuffer[Double]()
+
+    for (i <- 1 to numRuns) {
+      val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3), seed = System.currentTimeMillis() + i)
+      val model = pipeline.fit(trainingData)
+      val predictions = model.transform(testData)
+
+      val evaluator = new BinaryClassificationEvaluator()
+        .setLabelCol("label")
+        .setRawPredictionCol("rawPrediction")
+        .setMetricName("areaUnderROC")
+      val auc = evaluator.evaluate(predictions)
+
+      val accuracyEvaluator = new MulticlassClassificationEvaluator()
+        .setLabelCol("label")
+        .setPredictionCol("prediction")
+        .setMetricName("accuracy")
+      val accuracy = accuracyEvaluator.evaluate(predictions)
+
+      aucResults += auc
+      accuracyResults += accuracy
+
+      println(s"Run $i: AUC = $auc, Accuracy = $accuracy")
+    }
+
+    println(s"\nAUC promedio: ${aucResults.sum / aucResults.length}")
+    println(s"Accuracy promedio: ${accuracyResults.sum / accuracyResults.length}")
+  }
+
+  // Llama a la función en tu main:
+  runMultipleEvaluations(30)

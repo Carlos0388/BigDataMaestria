@@ -92,7 +92,7 @@ as especificadas. En este caso, no se especifican columnas, por lo que se elimin
 an las filas con valores nulos en cualquier columna.
 
 ```scala
-    // Indexar la columna objetivo "y" (NO uses .fit aquí)
+    // Target column is "y", convert it to label 0/1
     val labelIndexer = new StringIndexer().setInputCol("y").setOutputCol("label")
 ```
 Terminal:
