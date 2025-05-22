@@ -19,7 +19,7 @@ Dr. José Christian Romero Hernández
 
 **Alumno:**  
 Carlos García  
-Ejordque Jauregui
+Enrrique Jauregui
 
 Tijuana, Baja California, a 21 de mayo de 2025.
 
