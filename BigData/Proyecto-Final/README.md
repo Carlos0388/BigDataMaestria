@@ -21,7 +21,7 @@ Dr. José Christian Romero Hernández
 Carlos García  
 Enrrique Jauregui
 
-Tijuana, Baja California, a 21 de mayo de 2025.
+Tijuana, Baja California, a 28 de mayo de 2025.
 
 
 # Índice
